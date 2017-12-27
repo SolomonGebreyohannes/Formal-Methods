@@ -1,0 +1,24 @@
+% Basic definitions
+% By FLS Group, Solomon Gebreyohannes
+% August 2017 
+
+fbasic_defs: THEORY
+BEGIN 
+
+  Feature:     TYPE
+  m:           TYPE = nat
+  mu:          TYPE = {u:real| 0 <= u AND u <= 1}
+  MF:          TYPE = [# range: [real,real],
+			 f:     [{x:real|range`1<=x AND x<=range`2}-> mu] #] 
+  Feat_MF:     TYPE = [# feat: Feature,
+                         mf:   MF #] 
+  Input:       TYPE = finseq[real]
+  Output:      TYPE = {class1, class2} 
+  Antecedents: TYPE = finseq[Feat_MF]
+  Consequent:  TYPE = {n: nat| n = -1 OR n = 1} 
+  Rule:        TYPE = [# rulen: m,
+                         antcs: Antecedents,
+                         consq: Consequent #]
+  Rules:       TYPE = finseq[Rule]  
+
+END fbasic_defs 
